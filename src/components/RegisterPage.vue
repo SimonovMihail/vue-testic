@@ -2,7 +2,7 @@
   <div class="wrapper">
     <el-main class="main-container">
       <h1>Регистрация</h1>
-      <el-form :model="form" ref="form" @submit.prevent="register">
+      <el-form :model="formLabelAlign" ref="form" label-width="150px" @submit.prevent="register">
         <el-form-item
           label="Логин:"
           prop="login"
@@ -79,7 +79,8 @@ export default {
     register() {
       this.$refs.form.validate((valid) => {
         if (valid) {
-          console.log('Form is valid:', this.form) // если всё заполнено то работай
+          console.log('Form is valid:', this.form)
+          console.log(this.username, this.email, this.password) // типа беку данные отправляю
         } else {
           console.error('Form validation failed')
           alert('Заполните недостающие поля!')
